@@ -9,6 +9,9 @@ FET_OUTPUT_PATH = "outputs/transfer/test_latest/images/1_transfered.png"
 # step1: input position of text information
 # step2: crop text from image
 # step3: padding image with average of edge background
+# step4: run FETGAN to transfer text into image
+# step5: add edge oftransfered image into original image's ege
+# step6: run diffusion inpainting to fill the missing area
 if __name__ == '__main__':
     orginal_image = cv.imread(sys.argv[1])
     
