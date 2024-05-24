@@ -27,7 +27,6 @@ class ResBlock(nn.Module):
 
     def forward(self, x):
         residual = x
-        
         logit = self.model(x)
         logit += residual
         return logit
