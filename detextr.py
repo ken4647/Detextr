@@ -5,6 +5,7 @@ from diffuser_opt import *
 
 DEFEALT_SIZE = (320, 320)
 FET_OUTPUT_PATH = "outputs/transfer/test_latest/images/1_transfered.png"
+DIFFUSION_RESULT_PATH = "outputs/diffusion/images/1_diffused.png"
 
 # step1: input position of text information
 # step2: crop text from image
@@ -15,16 +16,21 @@ FET_OUTPUT_PATH = "outputs/transfer/test_latest/images/1_transfered.png"
 if __name__ == '__main__':
     orginal_image = cv.imread(sys.argv[1])
     
-    txt_image,pos = crop_detect(orginal_image)
+    txt_image,rect = crop_detect(orginal_image)
     ref_image = padding_into(txt_image, DEFEALT_SIZE)
     
     create_txt(input("Enter the text you want to change into: "))
     run_fetgan()
     
     tansfered_image = cv.imread(FET_OUTPUT_PATH)
-    edge = edge_canny(ref_image)
-    edge_addinto(orginal_image, tansfered_image, pos)
+    tansfered_edge = edge_canny(tansfered_image)
+    
+    local_img, local_rect = rgb_addinto_and_crop(orginal_image, tansfered_image, rect)
+    edge_img = edge_addinto(local_img, tansfered_edge, local_rect)
+    mask_img = mask_get(local_img, local_rect)
     
     run_diffusion_inpainting(orginal_image)
+    
+    recover_into(orginal_image, DIFFUSION_RESULT_PATH)
     
     pass

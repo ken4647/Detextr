@@ -29,3 +29,14 @@ def padding_into(image, pad_size):
 def edge_addinto(edge_image1, edge_image2, pos):
     pass
 
+def rgb_addinto_and_crop(rgb_image1, rgb_image2, pos):
+    pass
+
+def combine_image(rgb_image, local_image):
+    pass
+
+def mask_get(size, rect):
+    pass
+
+def recover_into(image, rect):
+    pass
