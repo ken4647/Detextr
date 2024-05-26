@@ -142,7 +142,6 @@ def main(opt):
     cv2.imwrite(f'{input_for_impainting_dir}/balck_out_image.png', black_out_image)
     cv2.imwrite(f'{input_for_impainting_dir}/original_image.png', original_image)
     np.save(f'{input_for_impainting_dir}/black_out.npy', black_out_image_arr)
-
     
 
 if __name__ == '__main__':

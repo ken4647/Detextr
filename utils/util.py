@@ -1,4 +1,4 @@
-"""This module contains simple helper functions """
+"""This module contains simple helper functions"""
 import os
 import torch
 from natsort import natsorted
@@ -186,14 +186,14 @@ def print_save_options(opt, isSaveOptions=True, SaveSuffix=''):
     print(message)
 
     if opt['isTrain']:
-        expr_dir = os.path.join(opt['outputs_dir'], opt['name'])
-        checkpoints_dir = os.path.join(opt['outputs_dir'], opt['name'], 'checkpoints')
+        expr_dir = os.path.join(opt['outputs_dir'], opt['model_name'])
+        checkpoints_dir = os.path.join(opt['outputs_dir'], opt['model_name'], 'checkpoints')
         mkdirs([expr_dir, checkpoints_dir])
     else:
         if SaveSuffix != '':
-            expr_dir = os.path.join(opt['testresults_dir'], opt['name']+ '_' + SaveSuffix)
+            expr_dir = os.path.join(opt['testresults_dir'], opt['model_name']+ '_' + SaveSuffix)
         else:
-            expr_dir = os.path.join(opt['testresults_dir'], opt['name'])
+            expr_dir = os.path.join(opt['testresults_dir'], opt['model_name'])
         mkdir(expr_dir)
     
     # save to the disk

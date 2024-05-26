@@ -74,7 +74,7 @@ def run_fetgan(src_pic_path=None,
 
     cnt = 1
     for source_path in source_paths:
-        for _,refs_path in enumerate(ref_paths):
+        for _, refs_path in enumerate(ref_paths):
             source = make_test_data(source_path, opt['load_size'], opt['crop_size'])  # 1*3*128*128
             refs = torch.zeros(opt['K'], opt['input_nc'], opt['crop_size'], opt['crop_size'])  # K*3*128*128
             for i,ref_path in enumerate(refs_path):

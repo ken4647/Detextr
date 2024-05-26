@@ -6,12 +6,10 @@ from scipy.ndimage.morphology import distance_transform_edt as bwdist
 def PreProcess(img_path):
     img = cv2.imread(img_path)
     I = img[:,:,2]
-    I2 = bwdist(I <= 100);
-    I3 = bwdist(I > 100);
-
-    img[:,:,0] = np.clip(I2,0,255);
-    img[:,:,1] = np.clip(I3,0,255);
-
+    I2 = bwdist(I <= 100)
+    I3 = bwdist(I > 100)
+    img[:,:,0] = np.clip(I2,0,255)
+    img[:,:,1] = np.clip(I3,0,255)
     return img
 
 def mkdir(path):

@@ -31,7 +31,7 @@ class BaseModel(ABC):
         self.gpu_ids = opt['gpu_ids']
         self.isTrain = opt['isTrain']
         self.device = torch.device('cuda:{}'.format(self.gpu_ids[0])) if self.gpu_ids else torch.device('cpu')  # get device name: CPU or GPU
-        self.save_dir = os.path.join(opt['outputs_dir'], opt['name'], 'checkpoints')  # save all the checkpoints to save_dir
+        self.save_dir = os.path.join(opt['outputs_dir'], opt['model_name'], 'checkpoints')  # save all the checkpoints to save_dir
         torch.backends.cudnn.benchmark = True
         self.loss_names = []
         self.model_names = []

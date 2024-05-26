@@ -1,9 +1,14 @@
+import os
 from utils.create_txt import create_txt
 from image_process import *
 from FETGAN import run_fetgan
 from diffuser_opt import *
 
 DEFEALT_SIZE = (320, 320)
+
+if not os.path.exists("outputs"):
+    os.makedirs('outputs', exist_ok=True)
+
 FET_OUTPUT_PATH = "outputs/transfer/test_latest/images/1_transfered.png"
 DIFFUSION_RESULT_PATH = "outputs/diffusion/images/1_diffused.png"
 
