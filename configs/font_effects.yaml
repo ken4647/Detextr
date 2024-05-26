@@ -1,6 +1,6 @@
 # basic parameters
 gpu_ids:    [0]                 # gpu ids: e.g. [0],  [0,1,2], [0,2]. use [-1] for CPU
-outputs_dir:    ../weights        # models are saved here       
+outputs_dir:    ./weights        # models are saved here       
 
 # model parameters
 epoch:  latest    # which epoch to load? set to latest to use latest cached model

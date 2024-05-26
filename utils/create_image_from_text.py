@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import sys
 
-FFT_PTAH = "../fft/NotoSansSC-Black.ttf"
+FFT_PTAH = "./fft/NotoSansSC-Black.ttf"
 OUTPUT_DIR = "./image_outputs/plain_images"
 
 def create_image_from_text(text=None, 

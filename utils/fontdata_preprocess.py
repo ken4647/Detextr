@@ -25,8 +25,8 @@ fontname_list = ['BaiQing', 'CaiDie', 'ChenPinPo', 'DaiYuTi', 'DingHei', 'FanSon
 for idx, fontname in enumerate(fontname_list):
     print('%d: %s' % (idx, fontname))
     for i in range(1,838):
-        inputpath = '../../ChineseFonts/' + fontname + '/'
-        outputpath = '../datasets/Fonts100/finetune/' + fontname + '/'
+        inputpath = '././ChineseFonts/' + fontname + '/'
+        outputpath = './datasets/Fonts100/finetune/' + fontname + '/'
         mkdir(outputpath)
         img = PreProcess(inputpath + str(i)+'.png')
         cv2.imwrite(outputpath + str(i)+'.png',img)

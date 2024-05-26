@@ -11,10 +11,10 @@ def run_fetgan(src_pic_path=None,
                ref_pic_path=None,
                args=None
                ):
-    opt = get_option('../configs/font_effects.yaml')
+    opt = get_option('./configs/font_effects.yaml')
     opt['K'] = 1 # 1-shot fine-tuning
     opt['model_name'] = 'TextEffects' 
-    opt['testresults_dir'] = f"../image_repos/transferred_crop_images/" # '/TextEffects' / '/Fonts100'
+    opt['testresults_dir'] = f"./image_repos/transferred_crop_images/" # '/TextEffects' / '/Fonts100'
     os.makedirs(opt['testresults_dir'], exist_ok=True)
     
     opt['isTrain'] = False # train(True) or test(False)
@@ -32,7 +32,7 @@ def run_fetgan(src_pic_path=None,
     opt['testrefs'] = ref_pic_path #'./testimgs/TextEffects/FontEffects_refs/derby' #None # single ref images folder for test
     # opt['testrefs_dir'] = './inputs/ref_imgs/' # multiple reference images folders for test './testimgs/Fonts100/Fonts100_refs', './testimgs/TextEffects/TextEffects_refs'
 
-    print_save_options(opt)
+    # print_save_options(opt)
 
     assert (opt['testsource'] or opt['testsource_dir'])
     assert (opt['testrefs'] or opt['testrefs_dir'])

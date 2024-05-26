@@ -8,7 +8,7 @@ import os
 from utils.create_image_from_text import *
 from codes.process_image import *
 from codes.run_fetgan import run_fetgan
-from diffuser_opt import *
+from diffuser_try import *
 from utils.util import *
 
 import cv2
@@ -22,7 +22,7 @@ import matplotlib.patches as patches
     [2] crop id (position)
 '''
 def get_options():
-    opt = get_option('../configs/detextr.yaml')
+    opt = get_option('./configs/detextr.yaml')
     
     opt['image_id'] = sys.argv[1]
     opt['crop_id'] = sys.argv[2]
@@ -62,14 +62,14 @@ def main(opt):
     image_id = opt['image_id']
     crop_id = opt['crop_id']
     
-    image_path = f'../image_repos/original_images/{image_id}/image.png'
+    image_path = f'./image_repos/original_images/{image_id}/image.png'
 
     # Read original image
     orginal_image = cv2.imread(image_path)
     
     '''Extract refs
     '''
-    position_id_path = f'../image_repos/original_images/{image_id}/c{crop_id}.txt'
+    position_id_path = f'./image_repos/original_images/{image_id}/c{crop_id}.txt'
     with open(position_id_path, 'r') as reader:
         position = [s.split(',') for s in reader.read().strip().split('|')]
     point1, point2 = [[int(x) for x in map(str.strip, sublist)] for sublist in position]
@@ -79,7 +79,7 @@ def main(opt):
                                padding=True,
                                crop_size=[128,128])
     
-    reference_image_dir = f"../image_repos/reference_images/SelfDefine_refs/style_{opt['image_id']}"
+    reference_image_dir = f"./image_repos/reference_images/SelfDefine_refs/style_{opt['image_id']}"
     os.makedirs(reference_image_dir, exist_ok=True)
     
     ref_image_path = f'{reference_image_dir}/{crop_id}.png'

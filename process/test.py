@@ -5,7 +5,7 @@ import os
 from utils.create_image_from_text import *
 from codes.process_image import *
 from codes.run_fetgan import run_fetgan
-from diffuser_opt import *
+from diffuser_try import *
 from utils.util import *
 
 import cv2
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import copy
 
-transfered_image_path = '../image_repos/transferred_crop_images/TextEffects/test_latest/images/1_transfered.png'
+transfered_image_path = './image_repos/transferred_crop_images/TextEffects/test_latest/images/1_transfered.png'
 transfered_image = cv2.imread(transfered_image_path)
 edge_transfered_image = edge_canny(transfered_image)
 

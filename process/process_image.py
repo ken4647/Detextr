@@ -105,9 +105,20 @@ def blackout_image(image=None, position=None):
     (x1, y1), (x2, y2) = position
     
     # Set the specified region to -1
-    np_image[y1 : y2, x1 : x2] = -1.0
+    np_image[y1 : y2, x1 : x2] = -1
     np_image = np.expand_dims(np_image, 0).transpose(0, 3, 1, 2)
     return np_image   
+
+def make_mask_from_image(image=None, position=None):
+    # Convert image to RGB and normalize to [0, 1]
+    mask = np.zeros_like(image)
+    
+    # Get the mask position
+    (x1, y1), (x2, y2) = position
+    
+    # Set the specified region to -1
+    mask[y1 : y2, x1 : x2] = 255
+    return mask
 
 
 def convert_to_image(np_image=None):
