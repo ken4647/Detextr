@@ -2,6 +2,8 @@
 '''
 
 import sys
+
+import PIL.Image
 sys.path.extend(['process/'])
 
 import os
@@ -147,7 +149,8 @@ def main(opt):
     ''' Step 6, run diffusion inpainting to fill the missing area
     '''
     # Run diffusion inpainting
-    result_np = diffuser_generate_image(pasted_path, edge_pasted_path, mask_arr_path)
+    result_np = diffuser_generate_image(pasted_path, edge_pasted_path, mask_arr_path, prompt=[f"a text in similar style says '{opt['rewrite_letter']}', similar color, similar size, similar font, number or alph word"])
+    result_np = cv2.cvtColor(result_np, cv2.COLOR_RGB2BGR)
     cv2.imwrite(result_path := f'result.png', result_np)
     
 
