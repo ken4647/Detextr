@@ -5,13 +5,7 @@ Detextr is a tool for repainting styled text from images using Stable Diffusion 
 ## Exhibition
 
 <center class="half">
-<img src="docs/b1.png" height=400/>
-<img src="docs/result_A.png" height=400/>
-</center>
-
-<center class="half">
-<img src="docs/result_T.png" height=400/>
-<img src="docs/result_H.png" height=400/>
+<img src="docs/result.png" height=400/>
 </center>
 
 ## basic usage for demo
@@ -47,7 +41,13 @@ pip install -r requirements.txt
 6. run the following command in the terminal( for the first time, pre-trained diffusion model would be downloaded, which may take tens of minutes):
 
 ```bash
-`python detextr.py 1 1 [text effects you want to paint]`
+python detextr.py 1 1 [text]
+```
+
+such as:
+
+```bash
+python detextr.py 1 1 A
 ```
 
 7. the result will be saved as `result.png` in the workspace.
